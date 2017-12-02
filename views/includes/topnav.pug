@@ -1,21 +1,13 @@
 .header.clearfix
   nav#total_nav.navbar.navbar-expand-lg.navbar-light.bg-white
     h2
-      a#title.badge.badge-primary(href="/") POPSHION
+      a#title.badge.badge-primary(href="/") EVENTMAN
     button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarNavDropdown", aria-controls="navbarNavDropdown", aria-expanded="false", aria-label="Toggle navigation")
       span.navbar-toggler-icon
     #navbarNavDropdown.collapse.navbar-collapse
       ul.navbar-nav.ml-auto
         li.nav-item
-          a.nav-link(href="#") BROWSE SITE
-        li.nav-item.dropdown
-          a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href="http://example.com", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
-            | CLOTHES
-          .dropdown-menu(aria-labelledby="navbarDropdownMenuLink")
-            a.dropdown-item(href="#") Cap
-            a.dropdown-item(href="#") Top
-            a.dropdown-item(href="#") Bottom
-            a.dropdown-item(href="#") Shoes
+          a.nav-link(href="#") BROWSE EVENT
           if (!currentUser) 
             li.nav-item
               a.nav-link(href='/signin') SIGNIN
@@ -27,6 +19,6 @@
         li.nav-item
           a.nav-link(href="#") NOTICE
         li.nav-item
-          a#last_li.nav-link(href="#") CREATE STYLE
+          a#last_li.nav-link(href="/questions/new") CREATE STYLE
 
         

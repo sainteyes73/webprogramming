@@ -4,7 +4,7 @@ module.exports = (app, passport) => {
   });
 
   app.post('/signin', passport.authenticate('local-signin', {
-    successRedirect : '/questions', // redirect to the secure profile section
+    successRedirect : '/questions', // redirect to the secure profile section, 이때는 routes에 index.js를 가져온다
     failureRedirect : '/signin', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));

@@ -1,9 +1,21 @@
 .form-group
-  label(for="title") Title
-  input.form-control(type="text", name="title", placeholder="What's your question?", value=question.title)
+  label(for="title") Event Title
+  input.form-control(type="text", name="title", placeholder="Write down Event Title", value=question.title)
 .form-group
-  label(for="question") Question
-  textarea.form-control(name="content", rows="5")= question.content
+  label(for="place") Event place
+  input.form-control(type="text" , name="place", placeholder="Write down Event Place", value=question.event)
+.form-group
+  label(for="Start Time") Start time
+  input.form-control(type="text" , name="STime", placeholder="Write down Start Event Time" ,value=question.stime)
+.form-group
+  label(for="End Time") End time
+  input.form-control(type="text", name="ETime", placeholder="Wrtie down End Time", value= question.etime)
+.form-group
+  label(for="explanation") Explanation
+  textarea.form-control(name="explanation",placeholder="Explain Your Event", rows="5")= question.explanation
+.form-group
+  label(for="organization") organization
+  input.form-control(name="organization", placeholder="your organization", value = question.organization)
 .form-group
   label(for="tags") Tags
   input.form-control(type="text", name="tags", placeholder="tags separated by spaces", value=question.tags ? question.tags.join(" ") : "")

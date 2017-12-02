@@ -1,12 +1,12 @@
 const express = require('express');
 const Question = require('../models/question');
-const Answer = require('../models/answer'); 
+const Answer = require('../models/answer');
 const catchErrors = require('../lib/async-error');
 
 
 module.exports = io => {
   const router = express.Router();
-  
+
   // 동일한 코드가 users.js에도 있습니다. 이것은 나중에 수정합시다.
   function needAuth(req, res, next) {
     if (req.isAuthenticated()) {
@@ -31,8 +31,8 @@ module.exports = io => {
       ]};
     }
     const questions = await Question.paginate(query, {
-      sort: {createdAt: -1}, 
-      populate: 'author', 
+      sort: {createdAt: -1},
+      populate: 'author',
       page: page, limit: limit
     });
     res.render('questions/index', {questions: questions, term: term, query: req.query});
@@ -83,7 +83,8 @@ module.exports = io => {
     var question = new Question({
       title: req.body.title,
       author: user._id,
-      content: req.body.content,
+      place: req.body.place,
+      explanation: req.body.explanation,
       tags: req.body.tags.split(" ").map(e => e.trim()),
     });
     await question.save();
