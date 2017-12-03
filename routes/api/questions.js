@@ -10,11 +10,11 @@ router.get('/', catchErrors(async (req, res, next) => {
   const limit = parseInt(req.query.limit) || 10;
 
   const questions = await Question.paginate({}, {
-    sort: {createdAt: -1}, 
+    sort: {createdAt: -1},
     populate: 'author',
     page: page, limit: limit
   });
-  res.json({questions: questions.docs, page: questions.page, pages: questions.pages});   
+  res.json({questions: questions.docs, page: questions.page, pages: questions.pages});
 }));
 
 // Read
@@ -28,7 +28,7 @@ router.post('', catchErrors(async (req, res, next) => {
   var question = new Question({
     title: req.body.title,
     author: req.user._id,
-    content: req.body.content,
+    explanation: req.body.explanation,
     tags: req.body.tags.map(e => e.trim()),
   });
   await question.save();

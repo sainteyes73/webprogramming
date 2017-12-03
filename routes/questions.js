@@ -27,7 +27,7 @@ module.exports = io => {
     if (term) {
       query = {$or: [
         {title: {'$regex': term, '$options': 'i'}},
-        {content: {'$regex': term, '$options': 'i'}}
+        {explanation: {'$regex': term, '$options': 'i'}}
       ]};
     }
     const questions = await Question.paginate(query, {
@@ -64,7 +64,7 @@ module.exports = io => {
       return res.redirect('back');
     }
     question.title = req.body.title;
-    question.content = req.body.content;
+    question.explanation = req.body.explanation;
     question.tags = req.body.tags.split(" ").map(e => e.trim());
 
     await question.save();
@@ -84,10 +84,15 @@ module.exports = io => {
       title: req.body.title,
       author: user._id,
       place: req.body.place,
-      explanation: req.body.explanation,
-      tags: req.body.tags.split(" ").map(e => e.trim()),
+      content: req.body.content,
+      stime: req.body.stime,
+      etime: req.body.etime,
+      organization: req.body.organization,
+      exp_org:req.body.exp_org,
+      non_free: req.body.non_free,
+      check: req.body.check
     });
-    await question.save();
+    await question.save();//mongodb에 저장하는동안 대기
     req.flash('success', 'Successfully posted');
     res.redirect('/questions');
   }));

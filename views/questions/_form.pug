@@ -6,16 +6,33 @@
   input.form-control(type="text" , name="place", placeholder="Write down Event Place", value=question.event)
 .form-group
   label(for="Start Time") Start time
-  input.form-control(type="text" , name="STime", placeholder="Write down Start Event Time" ,value=question.stime)
+  input.form-control(type="text" , name="stime", placeholder="Write down Start Event Time" ,value=question.stime)
 .form-group
   label(for="End Time") End time
-  input.form-control(type="text", name="ETime", placeholder="Wrtie down End Time", value= question.etime)
+  input.form-control(type="text", name="etime", placeholder="Wrtie down End Time", value= question.etime)
 .form-group
-  label(for="explanation") Explanation
-  textarea.form-control(name="explanation",placeholder="Explain Your Event", rows="5")= question.explanation
+  label(for="content") Explanation
+  textarea.form-control(name="content",placeholder="Explain Your Event", rows="5")= question.explanation
 .form-group
   label(for="organization") organization
   input.form-control(name="organization", placeholder="your organization", value = question.organization)
 .form-group
-  label(for="tags") Tags
-  input.form-control(type="text", name="tags", placeholder="tags separated by spaces", value=question.tags ? question.tags.join(" ") : "")
+  label(for="explain_org") exp_org
+  input.form-control(name="exp_org", placeholder="Explain your organization", value = question.exp_org)
+.form-group
+  label(for="price") price
+   label.custom-control.custom-radio
+    input#radio1.custom-control-input(name="radio", type="radio")
+    span.custom-control-indicator
+    span.custom-control-description free
+   label.custom-control.custom-radio
+    input#radio2.custom-control-input(name="radio", type="radio")
+    span.custom-control-indicator
+    span.custom-control-description non_free
+   label(for="non_free_price")
+   input.form-control(name="non_free", placeholder="write price", value = question.price)
+  
+   	
+
+
+ 
