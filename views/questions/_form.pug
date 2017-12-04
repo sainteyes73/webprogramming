@@ -6,10 +6,10 @@
   input.form-control(type="text" , name="place", placeholder="Write down Event Place", value=question.event)
 .form-group
   label(for="Start Time") Start time
-  input.form-control(type="text" , name="stime", placeholder="Write down Start Event Time" ,value=question.stime)
+  input.form-control(type="date" , name="stime", placeholder="Write down Start Event Time" ,value=question.stime)
 .form-group
   label(for="End Time") End time
-  input.form-control(type="text", name="etime", placeholder="Wrtie down End Time", value= question.etime)
+  input.form-control(type="date", name="etime", placeholder="Wrtie down End Time", value= question.etime)
 .form-group
   label(for="content") Explanation
   textarea.form-control(name="content",placeholder="Explain Your Event", rows="5")= question.explanation

@@ -2,12 +2,16 @@ extends ../layout
 
 block content
   .container
-    h1.main-title= question.title
+    .row
+      .col-sm
+        .main
+          h1.main-title= question.title
 
     .question.show
-      .content= question.content
+      //.content= question.content
+  
       include _question
-
+    
       .buttons
         if currentUser
           button.btn.btn-primary.question-like-btn(data-id=question.id) 
