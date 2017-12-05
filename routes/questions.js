@@ -27,7 +27,7 @@ module.exports = io => {
     if (term) {
       query = {$or: [
         {title: {'$regex': term, '$options': 'i'}},
-        {explanation: {'$regex': term, '$options': 'i'}}
+        {content: {'$regex': term, '$options': 'i'}}
       ]};
     }
     const questions = await Question.paginate(query, {

@@ -101,7 +101,7 @@ module.exports = (app, io) => {
     success:      (data, accept) => {
       console.log('successful connection to socket.io');
       accept(null, true);
-    }, 
+    },
     fail:         (data, message, error, accept) => {
       // 실패 혹은 로그인 안된 경우
       console.log('failed connection to socket.io:', message);

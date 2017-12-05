@@ -28,9 +28,32 @@ block hero-unit
       
 block content
   .container
-    h2
-      | Event List 
       //include ./questions/_question
+      .card-box 
+         if questions.total <= 0  
+           .alert.alert-info No Event available yet 
+         else
+           .row.questions
+             each question in questions.docs
+               .col-md-4.col-sm-6
+                 .question
+                   .card
+                     a(herf='/questions/${question.id}')
+                       if question.img
+                         img.img-fluid(src=question.img)
+                       else
+                         | no images
+                       .card-body
+                        .card-text
+                          .title=question.title
+                          .cardlocation
+                            p Location :
+                            |&nbsp;
+                            .content=question.content
+                            |&nbsp;
+                            .stime= moment(question.stime).format('YYYY-MM-DD')+" ~ " + moment(question.etime).format('YYYY-MM-DD')
+                            
+
   #second_term.container
     h2 Browse more Items
   #more_item.container
