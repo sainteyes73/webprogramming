@@ -52,10 +52,10 @@ block content
                             .content=question.content
                             |&nbsp;
                             .stime= moment(question.stime).format('YYYY-MM-DD')+" ~ " + moment(question.etime).format('YYYY-MM-DD')
-                            
-
-  #second_term.container
-    h2 Browse more Items
+                      
+  .browse_button
+    a.btn.btn-primary(href="/questions", role="button") Browse More Events!
+     
   #more_item.container
     .row
       .col-12.col-md-6

@@ -10,7 +10,9 @@ body {
 a:hover {
   text-decoration: none;
 }
-
+.browse_button{
+  text-align: center;
+}
 .form-actions {
   padding: 19px 20px 20px;
   margin-top: 20px;
@@ -142,6 +144,7 @@ a:hover {
   color: #D8D8D8;
 }
 #more_item .row{
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 #more_item .display3{

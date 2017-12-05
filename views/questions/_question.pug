@@ -2,13 +2,7 @@
 br
 br
 h6 
-  | Event Start Time
-  span.badge.badge-secondary 
-    stime=question.stime
-h6
-  | Event End time
-  span.badge.badge-secondary
-    etime=question.etime
+    .stime= moment(question.stime).format('YYYY-MM-DD')+" ~ " + moment(question.etime).format('YYYY-MM-DD')
 .row
   .col-sm
     .numbers.
