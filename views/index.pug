@@ -47,12 +47,10 @@ block content
                         .card-text
                           .title=question.title
                           .cardlocation
-                            p Location :
+                            p place
+                            .place=question.place
                             |&nbsp;
                             .content=question.content
-                            |&nbsp;
-                            .stime= moment(question.stime).format('YYYY-MM-DD')+" ~ " + moment(question.etime).format('YYYY-MM-DD')
-                      
   .browse_button
     a.btn.btn-primary(href="/questions", role="button") Browse More Events!
      
@@ -62,32 +60,32 @@ block content
         .hovereffect
           img.img-fluid(src="./images/accessory.jpg", alt="Responsive image")
           .overlay
-            h2 Accessory
+            h2 in india
             a.info(href="#") link here
       .col-12.col-md-6
         .hovereffect
           img.img-fluid(src="./images/cap.jpg", alt="Responsive image")
           .overlay
-            h2 Cap
+            h2 with child
             a.info(href="#") link here
     .row
       .col-12.col-md-4
         .hovereffect
           img.img-fluid(src="./images/shirts.jpg", alt="Responsive image")
           .overlay
-            h2 Shirts
+            h2 party!
             a.info(href="#") link here
       .col-12.col-md-4
         .hovereffect
           img.img-fluid(src="./images/jacket.jpg", alt="Responsive image")
           .overlay
-            h2 Jacket
+            h2 freedom!
             a.info(href="#") link here
       .col-12.col-md-4
         .hovereffect
           img.img-fluid(src="./images/skirt.jpg", alt="Responsive image")
           .overlay
-            h2 Skirt
+            h2 in mountain
             a.info(href="#") link here
     // Columns are always 50% wide, on mobile and desktop
     .row
@@ -95,13 +93,13 @@ block content
         .hovereffect
           img.img-fluid(src="./images/pants.jpg", alt="Responsive image")
           .overlay
-            h2 Pants
+            h2 Fashion event!
             a.info(href="#") link here
       .col-12.col-md-6
         .hovereffect
           img.img-fluid(src="./images/shoes.jpg", alt="Responsive image")
           .overlay
-            h2 Shoes
+            h2 
             a.info(href="#") link here
 
   

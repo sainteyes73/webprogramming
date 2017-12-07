@@ -38,7 +38,9 @@ module.exports = (app, io) => {
   // const connStr = 'mongodb://dbuser1:mju12345@ds113825.mlab.com:13825/sampledb1';
   mongoose.connect(connStr, {useMongoClient: true });
   mongoose.connection.on('error', console.error);
-
+  const connstr = (process.env.NODE_ENV == 'production')?
+    'mongodb://db1:antusdk2@ds033196.mlab.com:33196/woosung':
+    'mongodb://localhost/mjdb2';
   // Favicon은 웹사이트의 대표 아이콘입니다. Favicon을 만들어서 /public에 둡시다.
   // https://www.favicon-generator.org/ 여기서 만들어볼 수 있어요.
   app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
