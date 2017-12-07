@@ -16,7 +16,42 @@ module.exports = io => {
       res.redirect('/signin');
     }
   }
+  function validateForm(form, options) {
+    var title = form.title || "";
+    var place = form.place || "";
+    var stime = form.stime || "";
+    var etime = form.etile || "";
+    var content= form.content || "";
+    var exp_org= form.exp_org || "";
 
+
+    if (!title) {
+      return 'Title is required.';
+    }
+
+    if (!place) {
+      return 'Place is required.';
+    }
+
+    if (!stime) {
+      return 'start time is required.';
+    }
+
+    if (!etime) {
+      return 'end time is required';
+    }
+
+    if (!content) {
+      return 'content is required';
+    }
+
+    if(!exp_org){
+      return 'write down organization explain'
+    }
+
+
+    return null;
+  }
   /* GET questions listing. */
   router.get('/', catchErrors(async (req, res, next) => {
     const page = parseInt(req.query.page) || 1;
