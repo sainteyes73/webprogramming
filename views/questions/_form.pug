@@ -11,8 +11,38 @@
   label(for="End Time") End time
   input.form-control(type="date", name="etime", placeholder="Wrtie down End Time", value= question.etime)
 .form-group
-  label(for='img') image
-  input.form-control(type="file", name="img")
+  label(for="img") Image
+  input#file.form-control(type="file")
+  input#url.form-control(type="text", readonly="readonly", name="img", value="")
+  img#preview.img-fluid(src="https://dummyimage.com/200x200/ccc/fff")
+    
+script.
+  $(function() {
+    $("#preview").hide();
+    $("#file").change(function() {
+      var file = $("#file")[0].files[0];
+      if (file) {
+        var url = "/s3?filename=" + encodeURIComponent(file.name) + 
+                  "&type=" + encodeURIComponent(file.type);
+        console.log(url);
+        $.getJSON(url, function(resp) {
+          console.log(resp.signedRequest);
+          $.ajax({
+            url: resp.signedRequest,
+            method: 'PUT',
+            data: file,
+            headers: {'x-amz-acl': 'public-read', 'Content-Type': file.type},
+            processData: false, 
+            contentType: file.type,
+            success: function() {
+              $("#preview").attr("src", resp.url).show();
+              $("#url").val(resp.url);
+            }
+          });
+        });
+      }
+    });
+  });
 .form-group
   label(for="content") Explanation
   textarea.form-control(name="content",placeholder="Explain Your Event", rows="5")= question.explanation
@@ -35,6 +65,7 @@
   
    label(for="non_free_price")
    input.form-control(aria-hidden='false',name="non_free", placeholder="write price", value = 0)
+
   
    	
 
