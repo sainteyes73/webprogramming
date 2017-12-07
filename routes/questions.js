@@ -98,9 +98,16 @@ module.exports = io => {
       req.flash('danger', 'Not exist question');
       return res.redirect('back');
     }
-    question.title = req.body.title;
-    question.explanation = req.body.explanation;
-    question.tags = req.body.tags.split(" ").map(e => e.trim());
+    question.title= req.body.title;
+    question.place= req.body.place;
+    question.content= req.body.content;
+    question.stime= req.body.stime;
+    question.etime= req.body.etime;
+    question.organization= req.body.organization;
+    question.exp_org=req.body.exp_org;
+    question.non_free= req.body.non_free;
+    question.check= req.body.check;
+  //  question.tags = req.body.tags.split(" ").map(e => e.trim());
 
     await question.save();
     req.flash('success', 'Successfully updated');
@@ -121,8 +128,8 @@ module.exports = io => {
     }
     const user = req.user;
     var question = new Question({
-      title: req.body.title,
       author: user._id,
+      title: req.body.title,
       place: req.body.place,
       content: req.body.content,
       stime: req.body.stime,

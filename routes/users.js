@@ -44,6 +44,12 @@ function validateForm(form, options) {
 /* GET users listing. */
 router.get('/', needAuth, catchErrors(async (req, res, next) => {
   const users = await User.find({});
+  var userEmail=req.user.email;
+  if(userEmail!="admin@admin.com"){
+    req.flash('danger', '관리자만 접근 가능');
+    return res.redirect('back');
+  }
+
   res.render('users/index', {users: users});
 }));
 
