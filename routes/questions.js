@@ -20,7 +20,7 @@ module.exports = io => {
     var title = form.title || "";
     var place = form.place || "";
     var stime = form.stime || "";
-    var etime = form.etile || "";
+    var etime = form.etime || "";
     var content= form.content || "";
     var exp_org= form.exp_org || "";
 
@@ -114,6 +114,11 @@ module.exports = io => {
   }));
 
   router.post('/', needAuth, catchErrors(async (req, res, next) => {
+    const err = validateForm(req.body);
+    if (err) {
+      req.flash('danger', err);
+      return res.redirect('back');
+    }
     const user = req.user;
     var question = new Question({
       title: req.body.title,

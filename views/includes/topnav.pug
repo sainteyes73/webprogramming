@@ -7,7 +7,7 @@
     #navbarNavDropdown.collapse.navbar-collapse
       ul.navbar-nav.ml-auto
         li.nav-item
-          a.nav-link(href="#") BROWSE EVENT
+          a.nav-link(href="/questions") BROWSE EVENT
           if (!currentUser) 
             li.nav-item
               a.nav-link(href='/signin') SIGNIN
@@ -17,8 +17,6 @@
             li.nav-item
               a.nav-link(href='/signout') SIGNOUT
         li.nav-item
-          a.nav-link(href="#") NOTICE
-        li.nav-item
-          a#last_li.nav-link(href="/questions/new") CREATE STYLE
+          a#last_li.nav-link(href="/questions/new") CREATE EVENT
 
         

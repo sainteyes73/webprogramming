@@ -11,6 +11,9 @@
   label(for="End Time") End time
   input.form-control(type="date", name="etime", placeholder="Wrtie down End Time", value= question.etime)
 .form-group
+  label(for='img') image
+  input.form-control(type="file", name="img")
+.form-group
   label(for="content") Explanation
   textarea.form-control(name="content",placeholder="Explain Your Event", rows="5")= question.explanation
 .form-group
