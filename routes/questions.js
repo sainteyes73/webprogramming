@@ -24,7 +24,6 @@ module.exports = io => {
     var content= form.content || "";
     var exp_org= form.exp_org || "";
 
-
     if (!title) {
       return 'Title is required.';
     }
@@ -132,6 +131,7 @@ module.exports = io => {
       title: req.body.title,
       place: req.body.place,
       content: req.body.content,
+      img: req.body.img,
       stime: req.body.stime,
       etime: req.body.etime,
       organization: req.body.organization,
