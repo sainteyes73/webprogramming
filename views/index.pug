@@ -37,20 +37,15 @@ block content
              each question in questions.docs
                .col-md-4.col-sm-6
                  .question
-                   .card
-                     a(herf='/questions/${question.id}')
-                       if question.img
-                         img.img-fluid(src=question.img)
-                       else
-                         | no images
-                       .card-body
-                        .card-text
-                          .title=question.title
-                          .cardlocation
-                            p place
-                            .place=question.place
-                            |&nbsp;
-                            .content=question.content
+                   .card.border-primary.mb-3(style='max-width: 20rem;')
+                     .card-header
+                      .title= question.title
+                     .card-body.text-primary
+                       h4.card-title
+                        .content!= question.content
+                       .card-text place in
+                        .place=question.place
+
   .browse_button
     a.btn.btn-primary(href="/questions", role="button") Browse More Events!
      
@@ -61,32 +56,27 @@ block content
           img.img-fluid(src="./images/accessory.jpg", alt="Responsive image")
           .overlay
             h2 in india
-            a.info(href="#") link here
       .col-12.col-md-6
         .hovereffect
           img.img-fluid(src="./images/cap.jpg", alt="Responsive image")
           .overlay
             h2 with child
-            a.info(href="#") link here
     .row
       .col-12.col-md-4
         .hovereffect
           img.img-fluid(src="./images/shirts.jpg", alt="Responsive image")
           .overlay
             h2 party!
-            a.info(href="#") link here
       .col-12.col-md-4
         .hovereffect
           img.img-fluid(src="./images/jacket.jpg", alt="Responsive image")
           .overlay
             h2 freedom!
-            a.info(href="#") link here
       .col-12.col-md-4
         .hovereffect
           img.img-fluid(src="./images/skirt.jpg", alt="Responsive image")
           .overlay
             h2 in mountain
-            a.info(href="#") link here
     // Columns are always 50% wide, on mobile and desktop
     .row
       .col-12.col-md-6
@@ -94,12 +84,10 @@ block content
           img.img-fluid(src="./images/pants.jpg", alt="Responsive image")
           .overlay
             h2 Fashion event!
-            a.info(href="#") link here
       .col-12.col-md-6
         .hovereffect
           img.img-fluid(src="./images/shoes.jpg", alt="Responsive image")
           .overlay
             h2 
-            a.info(href="#") link here
 
   
