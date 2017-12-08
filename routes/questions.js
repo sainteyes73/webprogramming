@@ -23,6 +23,7 @@ module.exports = io => {
     var etime = form.etime || "";
     var content= form.content || "";
     var exp_org= form.exp_org || "";
+    var organization=form.organization || "";
 
     if (!title) {
       return 'Title is required.';
@@ -46,6 +47,10 @@ module.exports = io => {
 
     if(!exp_org){
       return 'write down organization explain'
+    }
+
+    if(!organization){
+      return 'write down organization'
     }
 
 
@@ -79,6 +84,7 @@ module.exports = io => {
   router.get('/:id/edit', needAuth, catchErrors(async (req, res, next) => {
     const question = await Question.findById(req.params.id);
     res.render('questions/edit', {question: question});
+
   }));
 
   router.get('/:id', catchErrors(async (req, res, next) => {
@@ -95,6 +101,11 @@ module.exports = io => {
 
     if (!question) {
       req.flash('danger', 'Not exist question');
+      return res.redirect('back');
+    }
+    const err = validateForm(req.body);
+    if (err) {
+      req.flash('danger', err);
       return res.redirect('back');
     }
     question.title= req.body.title;
