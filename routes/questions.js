@@ -24,7 +24,6 @@ module.exports = io => {
     var content= form.content || "";
     var exp_org= form.exp_org || "";
     var organization=form.organization || "";
-
     if (!title) {
       return 'Title is required.';
     }
@@ -66,7 +65,8 @@ module.exports = io => {
     if (term) {
       query = {$or: [
         {title: {'$regex': term, '$options': 'i'}},
-        {content: {'$regex': term, '$options': 'i'}}
+        {content: {'$regex': term, '$options': 'i'}},
+        {eventtopic: {'$regex': term, '$options': 'i'}}
       ]};
     }
     const questions = await Question.paginate(query, {
@@ -111,6 +111,7 @@ module.exports = io => {
     question.title= req.body.title;
     question.place= req.body.place;
     question.content= req.body.content;
+    question.eventtopic= req.body.eventtopic;
     question.stime= req.body.stime;
     question.etime= req.body.etime;
     question.organization= req.body.organization;
@@ -142,6 +143,7 @@ module.exports = io => {
       title: req.body.title,
       place: req.body.place,
       content: req.body.content,
+      eventtopic: req.body.eventtopic,
       img: req.body.img,
       stime: req.body.stime,
       etime: req.body.etime,

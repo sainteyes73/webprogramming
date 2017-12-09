@@ -11,7 +11,22 @@
   label(for="End Time") End time
   input.form-control(type="date", name="etime", placeholder="Wrtie down End Time", value= question.etime)
 
-    
+.form-group
+  event topic
+           .event-topic
+               select#event-tomenu.form-control(name='eventtopic')
+                   option Select event-topic
+                   option Music & Clubbing
+                   option Community & Culture
+                   option Family & Education
+                   option Business & Professional
+                   option Media & Entertainment
+                   option Food & Drink
+                   option Health & Wellness
+                   option Hobbies & Interest
+                   option Home & Lifestyle
+                   option NetWork & SNS
+
 .form-group
   label(for="content") Explanation
   textarea#editor(name='content')
